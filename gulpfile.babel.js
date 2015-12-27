@@ -33,6 +33,7 @@ import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
+import ghPages from 'gulp-gh-pages';
 import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
@@ -245,6 +246,11 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
     // Translates a static file path to the relative URL that it's served from.
     stripPrefix: path.join(rootDir, path.sep)
   });
+});
+
+gulp.task('deploy', () => {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 // Load custom tasks from the `tasks` directory
