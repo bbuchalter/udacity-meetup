@@ -80,4 +80,7 @@
   }
 
   // Your custom JavaScript goes here
+  $('#birthday').bootstrapMaterialDatePicker({
+    time: false
+  });
 })();

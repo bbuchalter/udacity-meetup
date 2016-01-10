@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Your styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/styles/bootstrap-material-datetimepicker.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
@@ -74,14 +76,17 @@
         <label class="mdl-textfield__label" for="job_title">Job Title</label>
         <input class="mdl-textfield__input" type="text" id="job_title"/>
       </div>
-      <div>
-        <label for="birthday">Birthday</label>
-        <input type="date" id="birthday"/>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="birthday">Birthday</label>
+        <input class="mdl-textfield__input" type="text" id="birthday"/>
       </div>
     </form>
 
-    <!-- build:js(app/) ../../scripts/main.min.js -->
+    <!-- build:js(app/) ../scripts/main.min.js -->
+    <script src="vendor/scripts/jquery.min.2.1.4.js"></script>
     <script src="vendor/scripts/material.min.1.0.6.js"></script>
+    <script src="vendor/scripts/moment.min.2.11.0.js"></script>
+    <script src="vendor/scripts/bootstrap-material-datetimepicker.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

@@ -87,7 +87,9 @@ gulp.task('styles', () => {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'app/styles/**/*.scss',
-    'app/styles/**/*.css'
+    'app/styles/**/*.css',
+    'app/vendor/styles/**/*.scss',
+    'app/vendor/styles/**/*.css'
   ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
@@ -111,7 +113,10 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
+      './app/vendor/scripts/jquery.min.2.1.4.js',
       './app/vendor/scripts/material.min.1.0.6.js',
+      './app/vendor/scripts/moment.min.2.11.0.js',
+      './app/vendor/scripts/bootstrap-material-datetimepicker.2.0.0.js',
       './app/scripts/main.js'
     ])
       .pipe($.newer('.tmp/scripts'))
@@ -119,7 +124,10 @@ gulp.task('scripts', () =>
       .pipe($.babel())
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
+      .pipe($.concat('jquery.min.2.1.4.js'))
       .pipe($.concat('material.min.1.0.6.js'))
+      .pipe($.concat('moment.min.2.11.0.js'))
+      .pipe($.concat('bootstrap-material-datetimepicker.2.0.0.js'))
       .pipe($.concat('main.min.js'))
       .pipe($.uglify({preserveComments: 'some'}))
       // Output files
@@ -173,6 +181,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
 
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['app/vendor/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts']);
   gulp.watch(['app/vendor/scripts/**/*.js'], ['scripts']);
   gulp.watch(['app/images/**/*'], reload);
