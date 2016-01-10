@@ -111,14 +111,15 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
+      './app/vendor/scripts/material.min.1.0.6.js',
       './app/scripts/main.js'
-      // Other scripts
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())
       .pipe($.babel())
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
+      .pipe($.concat('material.min.1.0.6.js'))
       .pipe($.concat('main.min.js'))
       .pipe($.uglify({preserveComments: 'some'}))
       // Output files
@@ -173,6 +174,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts']);
+  gulp.watch(['app/vendor/scripts/**/*.js'], ['scripts']);
   gulp.watch(['app/images/**/*'], reload);
 });
 
