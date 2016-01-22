@@ -33,6 +33,10 @@
 
     <link rel="canonical" href="http://bbuchalter.github.io/udacity-meetup/"/>
 
+    <!-- Styles for Date picker -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/styles/bootstrap-material-datetimepicker.css">
+
     <!-- Material Design Lite page styles:
     You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
     Format: material.color1-color2.min.css, some examples:
@@ -46,41 +50,57 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Your styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="vendor/styles/bootstrap-material-datetimepicker.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <form action="">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="name">Name</label>
-        <input class="mdl-textfield__input" type="text" id="name"/>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <h1>Meetup Event Planner</h1>
       </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="email">Email</label>
-        <input class="mdl-textfield__input" type="text" id="email"/>
+      <div class="mdl-cell mdl-cell--6-col">
+        <h2>Key Features</h2>
+        <p>
+          With Meetup Event Planner you can track events by type, host, and date.
+          Record guest lists, location details, and additional information.
+        </p>
       </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="password">Password</label>
-        <input class="mdl-textfield__input" type="password" id="password"/>
+      <div class="mdl-cell mdl-cell--6-col">
+        <h2>Sign Up</h2>
+        <form action="">
+          <div class="input-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="name">Name</label>
+            <input class="mdl-textfield__input" type="text" id="name"/>
+          </div>
+          <div class="input-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="email">Email</label>
+            <input class="mdl-textfield__input" type="text" id="email"/>
+          </div>
+          <div class="input-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="password">Password</label>
+            <input class="mdl-textfield__input" type="password" id="password"/>
+          </div>
+          <div class="input-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="password_confirmation">Confirm Password</label>
+            <input class="mdl-textfield__input" type="password" id="password_confirmation"/>
+          </div>
+          <div class="input-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="employer">Employer</label>
+            <input class="mdl-textfield__input" type="text" id="employer"/>
+          </div>
+          <div class="input-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="job_title">Job Title</label>
+            <input class="mdl-textfield__input" type="text" id="job_title"/>
+          </div>
+          <div class="input-wrapper mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="birthday">Birthday</label>
+            <input class="mdl-textfield__input" type="text" id="birthday"/>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+              Sign Up
+           </button>
+        </form>
       </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="password_confirmation">Confirm Password</label>
-        <input class="mdl-textfield__input" type="password" id="password_confirmation"/>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="employer">Employer</label>
-        <input class="mdl-textfield__input" type="text" id="employer"/>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="job_title">Job Title</label>
-        <input class="mdl-textfield__input" type="text" id="job_title"/>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="birthday">Birthday</label>
-        <input class="mdl-textfield__input" type="text" id="birthday"/>
-      </div>
-    </form>
+    </div>
 
     <!-- build:js(app/) ../scripts/main.min.js -->
     <script src="vendor/scripts/jquery.min.2.1.4.js"></script>
